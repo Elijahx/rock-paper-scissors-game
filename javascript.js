@@ -160,6 +160,7 @@ oneRoundOfRockPaperScissors(computerSelection, playerSelection,);
 */
 
 // 5 round game with winner declaration, you may have lost the battle but won the war
+/*
 let computerSelectionWinCounter =  0;
 let playerSelectionWinCounter = 0;
 let playerSelection;
@@ -203,31 +204,45 @@ function fiveRoundGame(computerSelection,playerSelection) {
            
             if (computerSelection === playerSelection) {
                 console.log("This game is a draw. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("This game is a draw. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("<br>");
                 computerSelectionWinCounter = ++computerSelectionWinCounter;
                 playerSelectionWinCounter = ++playerSelectionWinCounter;
             } 
             else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
                 console.log("You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("<br>");
                 computerSelectionWinCounter = ++computerSelectionWinCounter;
             }
             else if ((computerSelection === "paper") && (playerSelection === "rock")) {
                 console.log("You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("<br>");
                 computerSelectionWinCounter = ++computerSelectionWinCounter; 
             }
             else if ((computerSelection === "scissors") && (playerSelection === "paper")) {
                 console.log("You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("<br>");
                 computerSelectionWinCounter = ++computerSelectionWinCounter;
             }
             else if ((computerSelection === "rock") && (playerSelection === "paper")) { 
                 console.log("You win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("You win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("<br>");
                 playerSelectionWinCounter = ++playerSelectionWinCounter;
             }
             else if ((computerSelection === "paper") && (playerSelection === "scissors")) { 
                 console.log("You win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("You win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("<br>");
                 playerSelectionWinCounter = ++playerSelectionWinCounter;
             }
             else if ((computerSelection === "scissors") && (playerSelection === "rock")) {
                 console.log("You win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("You win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + ".")
+                document.write("<br>");
                 playerSelectionWinCounter = ++playerSelectionWinCounter;
             }
         
@@ -238,25 +253,219 @@ function fiveRoundGame(computerSelection,playerSelection) {
     if (computerSelectionWinCounter === playerSelectionWinCounter) {
         console.log("The war is not lost yet, its a draw for now... You have " + playerSelectionWinCounter + " Victories while the enemy has " + computerSelectionWinCounter + " Victories.")
         document.write("The war is not lost yet, its a draw for now... You have " + playerSelectionWinCounter + " Victories while the enemy has " + computerSelectionWinCounter + " Victories.")
+        document.write("<br>");
     }
     else if (computerSelectionWinCounter > playerSelectionWinCounter) {
         console.log("You have lost the war, the enemy has " + computerSelectionWinCounter + " Victories to your " + playerSelectionWinCounter + " Victories.")
         document.write("You have lost the war, the enemy has " + computerSelectionWinCounter + " Victories to your " + playerSelectionWinCounter + " Victories.")
+        document.write("<br>");
     }
     else if (computerSelectionWinCounter < playerSelectionWinCounter) { 
-        console.log("You have won the war, you have " + playerSelectionWinCounter + " Victories to the enmemies " + computerSelectionWinCounter + " Victories.")
-        document.write("You have won the war, you have " + playerSelectionWinCounter + " Victories to the enmemies " + computerSelectionWinCounter + " Victories.")
+        console.log("You have won the war, you have " + playerSelectionWinCounter + " Victories to the enemies " + computerSelectionWinCounter + " Victories.")
+        document.write("You have won the war, you have " + playerSelectionWinCounter + " Victories to the enemies " + computerSelectionWinCounter + " Victories.")
+        document.write("<br>");
     }
 }
+*/
 //fiveRoundGame(computerSelection,playerSelection);
 document.write("<h1>Rock-Paper-Scissors-Game</h1>");
 document.write("<hr/>");
-playOrNot = prompt("Do you want to engage in a five round Rock, Paper, Scissors game? Enter yes or no.").toLowerCase();
+//playOrNot = prompt("Do you want to engage in a five round Rock, Paper, Scissors game? Enter yes or no.").toLowerCase();
 
-if (playOrNot === "yes") {
+/*if (playOrNot === "yes") {
     fiveRoundGame(computerSelection,playerSelection);
 } 
 else {
     alert("Makes no difference, five round game will be initiated.")
     fiveRoundGame(computerSelection,playerSelection);
+}
+*/
+//let rockButton = document.getElementById("rockButton");
+//rockButton.addEventListener("click",oneRoundOfRPSPSR(computerSelection, playerSelection));
+
+let computerSelectionWinCounter =  0;
+let playerSelectionWinCounter = 0;
+let rockButton_element = document.getElementById("rockButton");
+rockButton_element.addEventListener("click", oneRoundOfRPSPSR);
+let paperButton_element = document.getElementById("paperButton");
+paperButton_element.addEventListener("click", oneRoundOfRPSPSP);
+let scissorsButton_element = document.getElementById("scissorsButton");
+scissorsButton_element.addEventListener("click", oneRoundOfRPSPSS);
+
+
+
+
+function oneRoundOfRPSPSR(computerSelection,playerSelection) {
+    
+    playerSelection = "rock";
+    randomNumberForCompSelec = (Math.floor(Math.random() * (3)))
+    switch (randomNumberForCompSelec) {
+        case 0:
+            computerSelection = "rock";
+            break;
+        case 1:
+            computerSelection = "paper"
+           break;
+        case 2:
+            computerSelection = "scissors"
+            break;
+
+}
+    if (computerSelection === playerSelection) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "This game is a draw. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+} 
+    else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "paper") && (playerSelection === "rock")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter; 
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "scissors") && (playerSelection === "paper")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+        
+}
+    else if ((computerSelection === "rock") && (playerSelection === "paper")) { 
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "paper") && (playerSelection === "scissors")) { 
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "scissors") && (playerSelection === "rock")) {
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+if ((computerSelectionWinCounter === 5) || (playerSelectionWinCounter === 5)) {
+    if (computerSelectionWinCounter > playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "You have lost the War to five.";
+    }
+    else if (computerSelectionWinCounter < playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "You have won the War to five.";
+    }
+    else if (computerSelectionWinCounter === playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "The War to five is a draw, for now.";
+    }
+}
+}
+
+function oneRoundOfRPSPSP(computerSelection,playerSelection) {
+    playerSelection = "paper";
+    randomNumberForCompSelec = (Math.floor(Math.random() * (3)))
+    switch (randomNumberForCompSelec) {
+        case 0:
+            computerSelection = "rock";
+            break;
+        case 1:
+            computerSelection = "paper"
+           break;
+        case 2:
+            computerSelection = "scissors"
+            break;
+
+}
+    if (computerSelection === playerSelection) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "This game is a draw. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+} 
+    else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "paper") && (playerSelection === "rock")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter; 
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "scissors") && (playerSelection === "paper")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+    
+}
+    else if ((computerSelection === "rock") && (playerSelection === "paper")) { 
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "paper") && (playerSelection === "scissors")) { 
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "scissors") && (playerSelection === "rock")) {
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+if ((computerSelectionWinCounter === 5) || (playerSelectionWinCounter === 5)) {
+    if (computerSelectionWinCounter > playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "You have lost the War to five.";
+    }
+    else if (computerSelectionWinCounter < playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "You have won the War to five.";
+    }
+    else if (computerSelectionWinCounter === playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "The War to five is a draw, for now.";
+    }
+}
+}
+
+function oneRoundOfRPSPSS(computerSelection,playerSelection) {
+    playerSelection = "scissors";
+    randomNumberForCompSelec = (Math.floor(Math.random() * (3)))
+    switch (randomNumberForCompSelec) {
+        case 0:
+            computerSelection = "rock";
+            break;
+        case 1:
+            computerSelection = "paper"
+           break;
+        case 2:
+            computerSelection = "scissors"
+            break;
+
+}
+    if (computerSelection === playerSelection) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "This game is a draw. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+} 
+    else if ((computerSelection === "rock") && (playerSelection === "scissors")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "paper") && (playerSelection === "rock")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter; 
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "scissors") && (playerSelection === "paper")) {
+        computerSelectionWinCounter = ++computerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You lose. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+    
+}
+    else if ((computerSelection === "rock") && (playerSelection === "paper")) { 
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "paper") && (playerSelection === "scissors")) { 
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+    else if ((computerSelection === "scissors") && (playerSelection === "rock")) {
+        playerSelectionWinCounter = ++playerSelectionWinCounter;
+        document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
+}
+if ((computerSelectionWinCounter === 5) || (playerSelectionWinCounter === 5)) {
+    if (computerSelectionWinCounter > playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "You have lost the War to five.";
+    }
+    else if (computerSelectionWinCounter < playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "You have won the War to five.";
+    }
+    else if (computerSelectionWinCounter === playerSelectionWinCounter) {
+        document.getElementById("warResults").innerHTML = "The War to five is a draw, for now.";
+    }
+}  
 }
