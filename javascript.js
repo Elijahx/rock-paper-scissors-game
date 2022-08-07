@@ -268,8 +268,8 @@ function fiveRoundGame(computerSelection,playerSelection) {
 }
 */
 //fiveRoundGame(computerSelection,playerSelection);
-document.write("<h1>Rock-Paper-Scissors-Game</h1>");
-document.write("<hr/>");
+//document.write("<h1>Rock-Paper-Scissors-Game</h1>");
+//document.write("<hr/>");
 //playOrNot = prompt("Do you want to engage in a five round Rock, Paper, Scissors game? Enter yes or no.").toLowerCase();
 
 /*if (playOrNot === "yes") {
@@ -292,8 +292,12 @@ paperButton_element.addEventListener("click", oneRoundOfRPSPSP);
 let scissorsButton_element = document.getElementById("scissorsButton");
 scissorsButton_element.addEventListener("click", oneRoundOfRPSPSS);
 
-
-
+ // Disable buttons to prevent any more games past five.
+function buttonDisabler() {
+    document.getElementById("rockButton").disabled = true;
+    document.getElementById("paperButton").disabled = true;
+    document.getElementById("scissorsButton").disabled = true;
+}
 
 function oneRoundOfRPSPSR(computerSelection,playerSelection) {
     
@@ -342,6 +346,9 @@ function oneRoundOfRPSPSR(computerSelection,playerSelection) {
         document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
 }
 if ((computerSelectionWinCounter === 5) || (playerSelectionWinCounter === 5)) {
+
+    buttonDisabler();
+
     if (computerSelectionWinCounter > playerSelectionWinCounter) {
         document.getElementById("warResults").innerHTML = "You have lost the War to five.";
     }
@@ -400,6 +407,9 @@ function oneRoundOfRPSPSP(computerSelection,playerSelection) {
         document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
 }
 if ((computerSelectionWinCounter === 5) || (playerSelectionWinCounter === 5)) {
+
+    buttonDisabler();
+
     if (computerSelectionWinCounter > playerSelectionWinCounter) {
         document.getElementById("warResults").innerHTML = "You have lost the War to five.";
     }
@@ -458,6 +468,9 @@ function oneRoundOfRPSPSS(computerSelection,playerSelection) {
         document.getElementById("victoryAndDefeatCount").innerHTML = "You Win. " + "Computer selection was " + (computerSelection) + " while your selection was " + (playerSelection) + "." + "\n" + "Skirmish Results: " + "Computer Battles Won - " + computerSelectionWinCounter + " Player Battles Won - " + playerSelectionWinCounter;
 }
 if ((computerSelectionWinCounter === 5) || (playerSelectionWinCounter === 5)) {
+
+    buttonDisabler();
+
     if (computerSelectionWinCounter > playerSelectionWinCounter) {
         document.getElementById("warResults").innerHTML = "You have lost the War to five.";
     }
