@@ -40,9 +40,11 @@ html {
     outline-style: solid;
     outline-color: #FFC300;
     outline-width: medium;
+    transition: 100ms;
 }
 #rockButton:hover, #paperButton:hover, #scissorsButton:hover {
     box-shadow: inset 100px 0 0 0 #FFC300;
+    transform: scale(1.2);
 }
 
 
